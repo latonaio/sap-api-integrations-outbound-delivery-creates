@@ -38,9 +38,9 @@ accepter において 下記の例のように、データの種別（＝APIの�
 ここでは、"Header" が指定されています。    
   
 ```
-	"api_schema": "sap.s4.beh.outbounddelivery.v1.OutboundDelivery.Created.v1",
+	"api_schema": "SAPOutboundDeliveryCreates",
 	"accepter": ["Header"],
-	"delivery_document": "80000000",
+	"delivery_document": "",
 	"deleted": false
 ```
   
@@ -49,9 +49,9 @@ accepter において 下記の例のように、データの種別（＝APIの�
 全データを取得する場合、sample.json は以下のように記載します。  
 
 ```
-	"api_schema": "sap.s4.beh.outbounddelivery.v1.OutboundDelivery.Created.v1",
+	"api_schema": "SAPOutboundDeliveryCreates",
 	"accepter": ["All"],
-	"delivery_document": "80000000",
+	"delivery_document": "",
 	"deleted": false
 ```
 
@@ -61,12 +61,12 @@ accepter における データ種別 の指定に基づいて SAP_API_Caller �
 caller.go の func() 毎 の 以下の箇所が、指定された API をコールするソースコードです。  
 
 ```
-func (c *SAPAPICaller) AsyncPostSalesOrder(
+func (c *SAPAPICaller) AsyncPostOutboundDelivery(
 	header *requests.Header,
 	item *requests.Item,
 	accepter []string) {
 	wg := &sync.WaitGroup{}
-	wg.Add(1)
+	wg.Add(len(accepter))
 	for _, fn := range accepter {
 		switch fn {
 		case "Header":

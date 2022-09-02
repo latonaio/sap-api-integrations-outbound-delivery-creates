@@ -4,7 +4,7 @@
 	"redis_key": "abcdefg",
 	"filepath": "/var/lib/aion/Data/rededge_sdc/abcdef.json",
 	"DeliveryDocument": {
-		"DeliveryDocument": "80000000",
+		"DeliveryDocument": "",
 		"DeliveryDocumentType": "",
 		"DocumentDate": "",
 		"ActualGoodsMovementDate": "",
@@ -80,7 +80,7 @@
 			}
 		},
 		"DeliveryDocumentItem": {
-			"DeliveryDocumentItem": "000010",
+			"DeliveryDocumentItem": "",
 			"BaseUnit": "",
 			"ActualDeliveryQuantity": "",
 			"Batch": "",
@@ -142,8 +142,8 @@
 			}
 		}
 	},
-	"api_schema": "sap.s4.beh.outbounddelivery.v1.OutboundDelivery.Created.v1",
+	"api_schema": "SAPOutboundDeliveryCreates",
 	"accepter": ["Item"],
-	"delivery_document": "80000000",
+	"delivery_document": "",
 	"deleted": false
 }
